@@ -9,13 +9,14 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
+
 <body>
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <div class="jumbotron">
-                    <h1 class="display-4">Pokemon Team Builder</h1>
-                    <p class="lead">Busca y agrega pokémon a tu equipo</p>
+                    <h1 class="display-4 text-center">Pokemon Team Builder</h1>
+                    <p class="lead text-center      ">Busca y agrega pokémon a tu equipo</p>
                 </div>
                 <div class="card">
                     <div class="card-body">
@@ -32,21 +33,30 @@
                                 <button type="button" class="btn btn-info" id="historial">Historial de equipos</button>
                             </div>
                             <ul id="lista-pokemones" class="list-group"></ul>
-                            <div id="equipo" class="alert alert-success" role="alert">
-                                <h4 class="alert-heading">Equipo Pokémon</h4>
-                                <div class="row">
-                                    <div class="col-md-4" id="equipo-lista"></div>
-                                </div>
-                            </div>
-                            <div id="historial-pokemon" class="alert alert-info" role="alert">
-                                <h4 class="alert-heading">Historial Pokémon</h4>
-                                <ul id="historial-pokemon-lista" class="list-group"></ul>
-                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Equipo Pokémon y Historial de equipos -->
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Equipo Pokémon</h4>
+                    <div class="row">
+                        <div class="col-md-12 text-center" id="equipo-lista"></div> <!-- Ajuste para centrar el texto del Pokémon -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="alert alert-info" role="alert">
+                    <h4 class="alert-heading">Historial de equipos</h4>
+                    <ul id="historial-pokemon-lista" class="list-group"></ul>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <div class="modal fade" id="historial-modal" tabindex="-1" aria-labelledby="historial-modal-label"
