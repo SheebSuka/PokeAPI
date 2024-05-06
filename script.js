@@ -22,7 +22,8 @@ function agregarPokemon() {
                 name: data.name,
                 url: data.sprites.front_default,
                 base_experience: data.base_experience,
-                ability: data.abilities[0].ability.name
+                ability: data.abilities[0].ability.name,
+                id: data.id
             };
             equipo.push(pokemon);
             mostrarEquipo();
@@ -43,6 +44,7 @@ function mostrarEquipo() {
       <div class="col-md-4">
         <img src="${pokemon.url}" alt="${pokemon.name}" class="img-fluid">
         <h5>${pokemon.name}</h5>
+        <p>ID: ${pokemon.id}</p>
         <p>Experiencia base: ${pokemon.base_experience}</p>
         <p>Habilidad: ${pokemon.ability}</p>
       </div>
@@ -74,6 +76,7 @@ function mostrarHistorial() {
             <li>
               <img src="${pokemon.url}" alt="${pokemon.name}" class="img-fluid" width="50">
               <span>${pokemon.name}</span>
+              <span>ID: ${pokemon.id}</span>
               <span>Experiencia base: ${pokemon.base_experience}</span>
               <span>Habilidad: ${pokemon.ability}</span>
             </li>
@@ -95,6 +98,7 @@ function mostrarHistorialPokemon() {
         <li class="list-group-item">
           <img src="${pokemon.url}" alt="${pokemon.name}" class="img-fluid" width="50">
           <span>${pokemon.name}</span>
+          <span>ID: ${pokemon.id}</span>
           <span>Experiencia base: ${pokemon.base_experience}</span>
           <span>Habilidad: ${pokemon.ability}</span>
         </li>
