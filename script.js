@@ -1,8 +1,6 @@
-// script.js
-
 // Variables globales
-let equipo = [];
-let historial = [];
+const equipo = [];
+const historial = [];
 
 // Función para agregar pokémon al equipo
 function agregarPokemon() {
