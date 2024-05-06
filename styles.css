@@ -1,12 +1,12 @@
 body {
-    background-image: url('/img/il_fullxfull.2921729273_gabq.png'); /* Reemplaza 'tu-imagen-de-fondo.jpg' con la ruta de tu imagen */
+    background-image: url('/img/il_fullxfull.2921729273_gabq.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed; /* Esto hará que el fondo se mantenga fijo en la pantalla */
-    opacity: 0.9; /* Ajusta el nivel de opacidad según necesites. 0.9 representa un 90% de opacidad */
+    background-attachment: fixed; 
+    opacity: 0.9; 
 }
 
 .lead {
-    color: #FFFFFF; /* Reemplaza #FFFFFF con el color blanco que prefieras */
+    color: #FFFFFF; 
 }
