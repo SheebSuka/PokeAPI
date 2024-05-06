@@ -110,7 +110,13 @@ function mostrarHistorialPokemon() {
 
 // Event listeners
 document.getElementById('agregar').addEventListener('click', agregarPokemon);
-document.getElementById('reset').addEventListener('click', resetearEquipo);
+document.getElementById('reset').addEventListener('click', () => {
+    if (equipo.length === 0) {
+        alert('No hay nada que resetear');
+        return;
+    }
+    resetearEquipo();
+});
 document.getElementById('historial').addEventListener('click', () => {
     if (equipo.length === 0) {
         alert('No hay nada que agregar al historial');
