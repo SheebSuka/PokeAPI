@@ -1,27 +1,37 @@
 // Variables globales
-const equipo = [];
+let equipo = [];
 const historial = [];
 
 // Función para agregar pokémon al equipo
 function agregarPokemon() {
     const pokemonInput = document.getElementById('pokemon');
     const pokemonName = pokemonInput.value.trim();
-    if (pokemonName !== '') {
-        fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
-            .then(response => response.json())
-            .then(data => {
-                const pokemon = {
-                    name: data.name,
-                    url: data.sprites.front_default,
-                    base_experience: data.base_experience,
-                    ability: data.abilities[0].ability.name
-                };
-                equipo.push(pokemon);
-                mostrarEquipo();
-                pokemonInput.value = '';
-            })
-            .catch(error => console.error('Error:', error));
+    if (pokemonName === '') {
+        alert('Favor de llenar el campo');
+        return;
     }
+    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la solicitud HTTP');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const pokemon = {
+                name: data.name,
+                url: data.sprites.front_default,
+                base_experience: data.base_experience,
+                ability: data.abilities[0].ability.name
+            };
+            equipo.push(pokemon);
+            mostrarEquipo();
+            pokemonInput.value = '';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Ha ocurrido un error. Por favor, verifica tu conexión a internet y vuelve a intentarlo.');
+        });
 }
 
 // Función para mostrar el equipo de pokémon
@@ -43,6 +53,10 @@ function mostrarEquipo() {
 
 // Función para resetear el equipo
 function resetearEquipo() {
+    if (equipo.length === 0) {
+        alert('No hay nada que resetear');
+        return;
+    }
     equipo = [];
     mostrarEquipo();
 }
@@ -94,6 +108,10 @@ function mostrarHistorialPokemon() {
 document.getElementById('agregar').addEventListener('click', agregarPokemon);
 document.getElementById('reset').addEventListener('click', resetearEquipo);
 document.getElementById('historial').addEventListener('click', () => {
+    if (equipo.length === 0) {
+        alert('No hay nada que agregar al historial');
+        return;
+    }
     historial.push([...equipo]);
     mostrarHistorialPokemon();
     mostrarHistorial();
