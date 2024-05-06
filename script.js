@@ -6,37 +6,38 @@ const historial = [];
 
 // Función para agregar pokémon al equipo
 // Función para agregar pokémon al equipo
+// Función para agregar pokémon al equipo
 function agregarPokemon() {
-    const pokemonInput = document.getElementById('pokemon').value.toLowerCase();
+    const pokemonInput = document.getElementById('pokemon');
     const pokemonName = pokemonInput.value.trim();
-
+    
     if (pokemonName !== '') {
-        // Verificar si ya hay 3 Pokémon en el equipo
-        if (equipo.length < 3) {
-            fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
-                .then(response => response.json())
-                .then(data => {
-                    const pokemon = {
-                        name: data.name,
-                        url: data.sprites.front_default,
-                        base_experience: data.base_experience,
-                        ability: data.abilities[0].ability.name
-                    };
-                    equipo.push(pokemon);
-                    mostrarEquipo();
-                    // Deshabilitar la entrada de texto si ya hay 3 Pokémon en el equipo
-                    if (equipo.length === 3) {
-                        pokemonInput.disabled = true;
-                    }
-                    pokemonInput.value = '';
-                })
-                .catch(error => console.error('Error:', error));
-        } else {
-            alert('¡Ya has agregado 3 Pokémon a tu equipo!');
-        }
+      // Verificar si ya hay 3 Pokémon en el equipo
+      if (equipo.length < 3) {
+        fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+         .then(response => response.json())
+         .then(data => {
+              const pokemon = {
+                name: data.name,
+                url: data.sprites.front_default,
+                base_experience: data.base_experience,
+                ability: data.abilities[0].ability.name
+              };
+              equipo.push(pokemon);
+              mostrarEquipo();
+              // Deshabilitar la entrada de texto si ya hay 3 Pokémon en el equipo
+              if (equipo.length === 3) {
+                pokemonInput.disabled = true;
+              }
+              pokemonInput.value = '';
+            })
+         .catch(error => console.error('Error:', error));
+      } else {
+        alert('¡Ya has agregado 3 Pokémon a tu equipo!');
+      }
     }
-}
-
+  }
+  
 
 // Función para mostrar el equipo de pokémon
 function mostrarEquipo() {
